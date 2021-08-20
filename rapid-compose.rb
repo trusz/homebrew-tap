@@ -31,6 +31,6 @@ class RapidCompose < Formula
   end
 
   def install
-    bin.install "rapid-compose"
+    bin.install "rc"
   end
 end
