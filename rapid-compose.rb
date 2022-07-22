@@ -5,32 +5,43 @@
 class RapidCompose < Formula
   desc ""
   homepage ""
-  version "1.6.1"
-  bottle :unneeded
+  version "1.6.2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.1/rapid-compose_1.6.1_Darwin_x86_64.tar.gz"
-      sha256 "2736afd890336b455bbcfa6b72d4f317997e1fe9a4e98e1ca54a98f261184178"
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.1/rapid-compose_1.6.1_Darwin_arm64.tar.gz"
-      sha256 "7a0b7e04e48b7f59273d3c795793e437ff861ec523be35a73b1089b489b0c2ea"
+      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.2/rapid-compose_1.6.2_Darwin_arm64.tar.gz"
+      sha256 "a458718cb03bb3cfd86caa4c8d4c2457d57c01a1e8fe6f99b662a86a92af26f5"
+
+      def install
+        bin.install "rc"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.2/rapid-compose_1.6.2_Darwin_x86_64.tar.gz"
+      sha256 "39ed94f35e5e7af7dae904063a0f647f4c70382321f645431b16f8a8ee905eaf"
+
+      def install
+        bin.install "rc"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.1/rapid-compose_1.6.1_Linux_x86_64.tar.gz"
-      sha256 "51c16d156cd7670892c6d5e34c2f8e46e42b20d2dd57f21a13ec68088babeab5"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.1/rapid-compose_1.6.1_Linux_arm64.tar.gz"
-      sha256 "31e68b05cfdb70e7ed740dd64a052f63e799ebadd70acc942754cfff440e8b58"
-    end
-  end
+      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.2/rapid-compose_1.6.2_Linux_arm64.tar.gz"
+      sha256 "025cfa51fcffd51c5bb496ad5aed0ea06f3432cab335ad712ba69cf2a85b50ad"
 
-  def install
-    bin.install "rc"
+      def install
+        bin.install "rc"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/trusz/rapid-compose/releases/download/v1.6.2/rapid-compose_1.6.2_Linux_x86_64.tar.gz"
+      sha256 "65a56d870c177ba7f828d15697acf6c45a794094b1fdfd871863a3d6348f47a7"
+
+      def install
+        bin.install "rc"
+      end
+    end
   end
 end
